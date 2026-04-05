@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git config:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git remote:*)",
+      "Bash(git branch:*)",
+      "Bash(git init:*)",
+      "Bash(git status:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"C:/Users/Franco/Downloads/projeto teste\" && git add -A && git diff --cached --quiet || git commit -m \"auto: $(date '+%Y-%m-%d %H:%M:%S')\" && git push 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}
