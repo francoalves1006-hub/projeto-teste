@@ -14,7 +14,8 @@
       "mcp__visualize__show_widget",
       "Bash(start \"\" \"C:\\\\Users\\\\Franco\\\\Downloads\\\\projeto teste\\\\ufmt_concursos\\\\index.html\")",
       "WebSearch",
-      "WebFetch(domain:pt.wikipedia.org)"
+      "WebFetch(domain:pt.wikipedia.org)",
+      "Bash(grep -oE '#[0-9a-fA-F]{3,6}' logo-ufmt.svg)"
     ]
   },
   "hooks": {
