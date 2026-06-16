@@ -3,450 +3,399 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UFMT · Concursos e Vestibulares — PROAD / Supervisão de Concursos</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Vestibulares e Concursos — UFMT | PROAD / Supervisão de Concursos</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   :root{
-    --azul:#003B71;
-    --azul-2:#0058A8;
-    --azul-claro:#E8F1FA;
-    --verde:#1E8E4E;
-    --dourado:#C9A227;
-    --cinza:#5B6B7B;
-    --cinza-claro:#F4F7FA;
-    --borda:#E2E8F0;
-    --branco:#ffffff;
-    --texto:#16222E;
-    --sombra:0 4px 24px rgba(0,59,113,0.08);
-    --sombra-2:0 10px 40px rgba(0,59,113,0.14);
-    --radius:16px;
+    --azul:#0a3d6e;        /* azul institucional UFMT */
+    --azul-esc:#072c50;
+    --azul-link:#15599b;
+    --verde-gov:#168821;   /* verde gov.br */
+    --amarelo:#ffcd07;     /* amarelo gov.br */
+    --cinza-bg:#f0f2f4;
+    --cinza-borda:#d9dee3;
+    --cinza-txt:#454f57;
+    --texto:#1b1f24;
+    --branco:#fff;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',sans-serif;color:var(--texto);background:var(--branco);line-height:1.6;overflow-x:hidden}
-  a{text-decoration:none;color:inherit}
-  .container{max-width:1200px;margin:0 auto;padding:0 24px}
+  body{font-family:"Segoe UI",Tahoma,Verdana,Arial,sans-serif;font-size:16px;color:var(--texto);background:var(--cinza-bg);line-height:1.55}
+  a{color:var(--azul-link);text-decoration:none}
+  a:hover{text-decoration:underline}
+  img{max-width:100%}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 18px}
 
-  /* ===== Top bar ===== */
-  .topbar{background:var(--azul);color:#cfe2f5;font-size:13px}
-  .topbar .container{display:flex;justify-content:space-between;align-items:center;height:42px;flex-wrap:wrap}
-  .topbar .info span{margin-right:20px}
-  .topbar .info i{margin-right:6px;color:var(--dourado)}
-  .topbar .social a{margin-left:14px;color:#cfe2f5;transition:.2s}
-  .topbar .social a:hover{color:#fff}
+  /* ===== Barra gov / acessibilidade ===== */
+  .govbar{background:var(--azul-esc);color:#cdd9e6;font-size:12.5px}
+  .govbar .wrap{display:flex;justify-content:space-between;align-items:center;height:34px;flex-wrap:wrap}
+  .govbar a{color:#cdd9e6}
+  .govbar .esq a{margin-right:16px}
+  .govbar .esq i{margin-right:5px;color:var(--amarelo)}
+  .govbar .dir a{margin-left:14px;border:1px solid rgba(255,255,255,.25);padding:2px 8px;border-radius:3px;font-size:11.5px}
+  .govbar .dir a:hover{background:rgba(255,255,255,.1);text-decoration:none}
 
-  /* ===== Header / nav ===== */
-  header{position:sticky;top:0;z-index:100;background:var(--branco);box-shadow:0 2px 16px rgba(0,0,0,.05);transition:.3s}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:84px}
-  .brand{display:flex;align-items:center;gap:14px}
-  .brand .logo{width:56px;height:56px;border-radius:50%;background:var(--azul);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
-  .brand .logo::after{content:"";position:absolute;inset:6px;border:2px solid rgba(255,255,255,.4);border-radius:50%}
-  .brand .logo span{color:#fff;font-weight:800;font-size:15px;letter-spacing:.5px;z-index:1}
-  .brand .txt b{display:block;font-size:17px;font-weight:700;color:var(--azul);line-height:1.15}
-  .brand .txt small{font-size:12px;color:var(--cinza)}
-  .menu{display:flex;gap:4px;list-style:none}
-  .menu a{padding:10px 16px;border-radius:10px;font-size:14.5px;font-weight:500;color:var(--texto);transition:.2s}
-  .menu a:hover{background:var(--azul-claro);color:var(--azul)}
-  .menu a.active{background:var(--azul);color:#fff}
-  .burger{display:none;font-size:24px;color:var(--azul);background:none;border:none;cursor:pointer}
+  /* ===== Cabeçalho institucional ===== */
+  .topo{background:var(--branco);border-bottom:3px solid var(--amarelo)}
+  .topo .wrap{display:flex;align-items:center;gap:22px;padding:18px 18px}
+  .topo .marca{display:flex;align-items:center;gap:16px}
+  .topo .marca img{height:74px;width:auto}
+  .topo .marca .nome{border-left:1px solid var(--cinza-borda);padding-left:16px}
+  .topo .marca .nome b{display:block;font-size:20px;color:var(--azul);font-weight:700;letter-spacing:.2px}
+  .topo .marca .nome small{display:block;font-size:13px;color:var(--cinza-txt);line-height:1.5;margin-top:3px}
+  .topo .busca{margin-left:auto;display:flex;align-items:stretch;border:1px solid var(--cinza-borda);border-radius:4px;overflow:hidden;max-width:320px;flex:1}
+  .topo .busca input{border:none;padding:9px 12px;font-size:14px;flex:1;outline:none}
+  .topo .busca button{background:var(--azul);color:#fff;border:none;padding:0 16px;cursor:pointer;font-size:15px}
+  .topo .busca button:hover{background:var(--azul-esc)}
 
-  /* ===== Hero ===== */
-  .hero{position:relative;background:linear-gradient(135deg,#003B71 0%,#0058A8 60%,#0070C0 100%);color:#fff;overflow:hidden}
-  .hero::before{content:"";position:absolute;top:-120px;right:-120px;width:420px;height:420px;background:rgba(255,255,255,.06);border-radius:50%}
-  .hero::after{content:"";position:absolute;bottom:-160px;left:-100px;width:380px;height:380px;background:rgba(201,162,39,.12);border-radius:50%}
-  .hero .container{position:relative;z-index:2;padding:90px 24px 110px;display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
-  .hero .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);padding:7px 16px;border-radius:30px;font-size:13px;font-weight:500;margin-bottom:22px}
-  .hero h1{font-size:48px;font-weight:800;line-height:1.1;letter-spacing:-1px;margin-bottom:18px}
-  .hero h1 em{color:var(--dourado);font-style:normal}
-  .hero p{font-size:18px;color:#d6e6f6;max-width:520px;margin-bottom:32px}
-  .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
-  .btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:12px;font-weight:600;font-size:15px;cursor:pointer;border:none;transition:.25s}
-  .btn-gold{background:var(--dourado);color:#3a2e00}
-  .btn-gold:hover{background:#e0b631;transform:translateY(-2px)}
-  .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
-  .btn-ghost:hover{background:rgba(255,255,255,.22)}
-  .hero-card{background:rgba(255,255,255,.1);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:28px}
-  .hero-card h3{font-size:15px;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:10px}
-  .hero-card .hl{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:14px}
-  .hero-card .hl:last-child{border:none}
-  .hero-card .hl .pill{background:var(--dourado);color:#3a2e00;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px}
-  .wave{display:block;width:100%;height:auto;margin-top:-2px}
+  /* ===== Menu ===== */
+  nav.menu{background:var(--azul)}
+  nav.menu .wrap{display:flex;flex-wrap:wrap;align-items:center}
+  nav.menu a{color:#fff;font-size:14.5px;padding:13px 18px;display:inline-flex;align-items:center;gap:7px;border-right:1px solid rgba(255,255,255,.12)}
+  nav.menu a:hover{background:var(--azul-esc);text-decoration:none}
+  nav.menu a.ativo{background:var(--amarelo);color:var(--azul-esc);font-weight:600}
+  nav.menu .toggle{display:none;margin-left:auto;background:none;border:none;color:#fff;font-size:20px;padding:13px 18px;cursor:pointer}
 
-  /* ===== Stats ===== */
-  .stats{transform:translateY(-50px);position:relative;z-index:5}
-  .stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;background:var(--branco);border-radius:var(--radius);box-shadow:var(--sombra-2);padding:34px}
-  .stat{text-align:center;border-right:1px solid var(--borda)}
-  .stat:last-child{border:none}
-  .stat .ic{width:54px;height:54px;border-radius:14px;background:var(--azul-claro);color:var(--azul);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 12px}
-  .stat b{display:block;font-size:32px;font-weight:800;color:var(--azul);line-height:1}
-  .stat span{font-size:13.5px;color:var(--cinza)}
+  /* ===== Breadcrumb ===== */
+  .trilha{background:#e7ebef;border-bottom:1px solid var(--cinza-borda);font-size:13px;color:var(--cinza-txt)}
+  .trilha .wrap{padding:9px 18px}
+  .trilha i{font-size:11px;margin:0 7px;color:#9aa4ad}
 
-  /* ===== Section ===== */
-  section{padding:70px 0}
-  .sec-head{text-align:center;max-width:680px;margin:0 auto 48px}
-  .sec-head .tag{color:var(--azul-2);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase}
-  .sec-head h2{font-size:36px;font-weight:800;color:var(--azul);letter-spacing:-.5px;margin:8px 0 14px}
-  .sec-head p{color:var(--cinza);font-size:16.5px}
+  /* ===== Layout principal ===== */
+  .conteudo{padding:26px 0 40px}
+  .grade{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:start}
 
-  /* ===== Andamento (cards) ===== */
-  .andamento{background:var(--cinza-claro)}
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .card{background:var(--branco);border-radius:var(--radius);border:1px solid var(--borda);overflow:hidden;transition:.28s;cursor:pointer}
-  .card:hover{transform:translateY(-6px);box-shadow:var(--sombra-2);border-color:transparent}
-  .card .bar{height:6px;background:linear-gradient(90deg,var(--azul),var(--azul-2))}
-  .card .body{padding:24px}
-  .card .status{display:inline-flex;align-items:center;gap:7px;background:#E6F6EC;color:var(--verde);font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;margin-bottom:14px}
-  .card .status .dot{width:8px;height:8px;border-radius:50%;background:var(--verde);animation:pulse 1.6s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(30,142,78,.5)}70%{box-shadow:0 0 0 8px rgba(30,142,78,0)}100%{box-shadow:0 0 0 0 rgba(30,142,78,0)}}
-  .card h3{font-size:19px;font-weight:700;color:var(--azul);margin-bottom:10px}
-  .card .desc{font-size:14px;color:var(--cinza);margin-bottom:18px;min-height:42px}
-  .card .foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--borda);padding-top:14px}
-  .card .foot .date{font-size:13px;color:var(--cinza)}
-  .card .foot .date i{color:var(--dourado);margin-right:6px}
-  .card .foot .more{font-size:13.5px;font-weight:600;color:var(--azul-2)}
-  .card .foot .more i{transition:.2s}
-  .card:hover .foot .more i{transform:translateX(4px)}
+  .bloco{background:var(--branco);border:1px solid var(--cinza-borda);border-radius:5px;margin-bottom:22px}
+  .bloco > h2{font-size:16px;font-weight:600;color:#fff;background:var(--azul);padding:11px 16px;border-radius:5px 5px 0 0;display:flex;align-items:center;gap:9px}
+  .bloco .corpo{padding:16px}
 
-  /* ===== Vestibulares grid ===== */
-  .anos{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
-  .ano{background:var(--branco);border:1px solid var(--borda);border-radius:14px;padding:22px 18px;text-align:center;transition:.25s;cursor:pointer}
-  .ano:hover{background:var(--azul);border-color:var(--azul);transform:scale(1.04)}
-  .ano i{font-size:24px;color:var(--azul-2);margin-bottom:10px;display:block;transition:.25s}
-  .ano:hover i{color:var(--dourado)}
-  .ano b{display:block;font-size:20px;font-weight:700;color:var(--azul);transition:.25s}
-  .ano:hover b{color:#fff}
-  .ano span{font-size:12.5px;color:var(--cinza);transition:.25s}
-  .ano:hover span{color:#cfe2f5}
+  /* Sidebar - concursos em andamento */
+  .andamento li{list-style:none;padding:13px 16px;border-bottom:1px solid #eceff2}
+  .andamento li:last-child{border-bottom:none}
+  .andamento a.tit{display:block;font-weight:600;color:var(--azul-link);font-size:15px;margin-bottom:4px}
+  .andamento .det{font-size:12.5px;color:var(--cinza-txt);line-height:1.5}
+  .andamento .quando{display:inline-block;font-size:11.5px;color:var(--verde-gov);font-weight:600;margin-top:5px}
+  .andamento .quando i{margin-right:4px}
 
-  /* ===== PSE list ===== */
-  .pse{background:var(--cinza-claro)}
-  .pse-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .pse-item{display:flex;align-items:center;gap:16px;background:var(--branco);border:1px solid var(--borda);border-radius:14px;padding:18px 20px;transition:.22s;cursor:pointer}
-  .pse-item:hover{border-color:var(--azul-2);box-shadow:var(--sombra);transform:translateX(5px)}
-  .pse-item .ic{width:46px;height:46px;border-radius:12px;background:var(--azul-claro);color:var(--azul);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-  .pse-item .tx b{display:block;font-size:15px;font-weight:600;color:var(--texto)}
-  .pse-item .tx span{font-size:13px;color:var(--cinza)}
-  .pse-item .arr{margin-left:auto;color:var(--borda);font-size:18px;transition:.22s}
-  .pse-item:hover .arr{color:var(--azul-2)}
+  /* Sidebar - links rápidos */
+  .links-rapidos .corpo{padding:8px}
+  .links-rapidos a{display:flex;align-items:center;gap:11px;padding:11px 12px;border-radius:4px;color:var(--texto);font-size:14.5px}
+  .links-rapidos a:hover{background:var(--cinza-bg);text-decoration:none}
+  .links-rapidos a i{width:30px;height:30px;background:#e7eef5;color:var(--azul);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px}
 
-  /* ===== Serviços ===== */
-  .serv{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-  .serv .box{text-align:center;padding:34px 22px;border-radius:var(--radius);border:1px solid var(--borda);transition:.25s}
-  .serv .box:hover{background:var(--azul);transform:translateY(-6px);box-shadow:var(--sombra-2)}
-  .serv .box .ic{width:64px;height:64px;border-radius:50%;background:var(--azul-claro);color:var(--azul);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 18px;transition:.25s}
-  .serv .box:hover .ic{background:var(--dourado);color:#3a2e00}
-  .serv .box h4{font-size:17px;font-weight:700;color:var(--azul);margin-bottom:8px;transition:.25s}
-  .serv .box:hover h4{color:#fff}
-  .serv .box p{font-size:13.5px;color:var(--cinza);transition:.25s}
-  .serv .box:hover p{color:#cfe2f5}
+  /* Main - destaque */
+  .destaque{background:var(--branco);border:1px solid var(--cinza-borda);border-left:5px solid var(--amarelo);border-radius:5px;padding:22px 24px;margin-bottom:24px}
+  .destaque h1{font-size:23px;color:var(--azul);font-weight:700;margin-bottom:8px}
+  .destaque p{font-size:15px;color:var(--cinza-txt);max-width:680px}
 
-  /* ===== CTA faixa ===== */
-  .faixa{background:linear-gradient(120deg,#003B71,#0058A8);border-radius:24px;padding:54px;text-align:center;color:#fff;position:relative;overflow:hidden}
-  .faixa::before{content:"";position:absolute;top:-80px;right:-60px;width:260px;height:260px;background:rgba(201,162,39,.15);border-radius:50%}
-  .faixa h2{font-size:32px;font-weight:800;margin-bottom:12px;position:relative}
-  .faixa p{font-size:17px;color:#d6e6f6;max-width:560px;margin:0 auto 28px;position:relative}
+  /* Main - avisos / notícias */
+  .avisos li{list-style:none;display:flex;gap:16px;padding:15px 16px;border-bottom:1px solid #eceff2}
+  .avisos li:last-child{border-bottom:none}
+  .avisos .data{flex-shrink:0;width:62px;text-align:center;background:var(--cinza-bg);border:1px solid var(--cinza-borda);border-radius:4px;padding:7px 4px}
+  .avisos .data b{display:block;font-size:20px;color:var(--azul);font-weight:700;line-height:1}
+  .avisos .data span{font-size:11px;color:var(--cinza-txt);text-transform:uppercase}
+  .avisos .txt h3{font-size:15.5px;margin-bottom:4px}
+  .avisos .txt h3 a{color:var(--azul-link)}
+  .avisos .txt p{font-size:13.5px;color:var(--cinza-txt)}
+  .avisos .txt .tag{display:inline-block;font-size:11px;font-weight:600;color:#fff;background:var(--verde-gov);padding:2px 9px;border-radius:3px;margin-top:6px}
+  .avisos .txt .tag.azul{background:var(--azul)}
 
-  /* ===== Footer ===== */
-  footer{background:#01294E;color:#a9c3dc;padding:60px 0 0}
-  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:44px}
-  footer h5{color:#fff;font-size:16px;font-weight:700;margin-bottom:20px}
-  footer .fbrand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-  footer .fbrand .logo{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px}
-  footer .fbrand b{color:#fff;font-size:16px}
-  footer p{font-size:14px;line-height:1.8}
+  /* Listas em colunas (vestibulares / PSE) */
+  .grupo{background:var(--branco);border:1px solid var(--cinza-borda);border-radius:5px;margin-bottom:24px}
+  .grupo > h2{font-size:16px;font-weight:600;color:var(--azul);padding:14px 18px;border-bottom:2px solid var(--azul);display:flex;align-items:center;gap:9px}
+  .grupo .lista{list-style:none;padding:8px 10px;columns:2;column-gap:18px}
+  .grupo .lista li{break-inside:avoid;margin:0}
+  .grupo .lista a{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:4px;font-size:14.5px;color:var(--texto)}
+  .grupo .lista a:hover{background:var(--cinza-bg);color:var(--azul-link);text-decoration:none}
+  .grupo .lista a i{color:#c5704a;font-size:14px;width:16px}
+  .grupo .lista a .ext{margin-left:auto;font-size:11px;color:#aab2b9}
+
+  /* ===== Rodapé ===== */
+  footer{background:var(--azul-esc);color:#b8c6d6;font-size:14px;margin-top:10px}
+  footer .top{padding:38px 0 30px}
+  footer .grade-f{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:34px}
+  footer .marca-f{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  footer .marca-f img{height:60px;filter:brightness(0) invert(1);opacity:.92}
+  footer .marca-f b{color:#fff;font-size:15px;line-height:1.3}
+  footer p{line-height:1.7;font-size:13.5px}
+  footer h4{color:#fff;font-size:15px;margin-bottom:15px;font-weight:600}
   footer ul{list-style:none}
-  footer ul li{margin-bottom:11px;font-size:14px;transition:.2s}
-  footer ul li a:hover{color:var(--dourado);padding-left:5px}
-  footer ul li i{color:var(--dourado);margin-right:9px;width:16px}
-  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding:22px 0;text-align:center;font-size:13px;color:#7e9bb8}
+  footer ul li{margin-bottom:9px;font-size:13.5px}
+  footer ul li a{color:#b8c6d6}
+  footer ul li a:hover{color:#fff}
+  footer .contato li{display:flex;gap:10px}
+  footer .contato i{color:var(--amarelo);width:16px;margin-top:3px}
+  footer .redes a{display:inline-flex;width:34px;height:34px;align-items:center;justify-content:center;background:rgba(255,255,255,.1);border-radius:4px;margin-right:7px;color:#fff;margin-top:8px}
+  footer .redes a:hover{background:var(--amarelo);color:var(--azul-esc);text-decoration:none}
+  footer .base{border-top:1px solid rgba(255,255,255,.12);padding:16px 0;font-size:12.5px;text-align:center;color:#8499af}
 
-  /* ===== Responsive ===== */
-  @media(max-width:980px){
-    .hero .container{grid-template-columns:1fr;gap:36px}
-    .hero h1{font-size:38px}
-    .stats .grid{grid-template-columns:repeat(2,1fr)}
-    .stat:nth-child(2){border:none}
-    .cards,.serv{grid-template-columns:repeat(2,1fr)}
-    .foot-grid{grid-template-columns:1fr 1fr}
+  /* ===== Responsivo ===== */
+  @media(max-width:920px){
+    .grade{grid-template-columns:1fr}
+    footer .grade-f{grid-template-columns:1fr 1fr}
   }
   @media(max-width:680px){
-    .menu{display:none;position:absolute;top:84px;left:0;right:0;background:#fff;flex-direction:column;padding:14px;box-shadow:var(--sombra);gap:4px}
-    .menu.open{display:flex}
-    .burger{display:block}
-    .topbar .info span:nth-child(n+2){display:none}
-    .hero h1{font-size:32px}
-    .stats .grid{grid-template-columns:1fr}
-    .stat{border:none;border-bottom:1px solid var(--borda);padding-bottom:18px}
-    .stat:last-child{border:none}
-    .cards,.serv,.pse-list{grid-template-columns:1fr}
-    .foot-grid{grid-template-columns:1fr}
-    .faixa{padding:36px 22px}
-    .sec-head h2{font-size:28px}
+    .topo .wrap{flex-wrap:wrap}
+    .topo .busca{margin-left:0;max-width:none;order:3;width:100%}
+    nav.menu .wrap{flex-direction:column;align-items:stretch}
+    nav.menu a{border-right:none;border-bottom:1px solid rgba(255,255,255,.12);display:none}
+    nav.menu.aberto a{display:flex}
+    nav.menu .toggle{display:block;align-self:flex-end}
+    .grupo .lista{columns:1}
+    footer .grade-f{grid-template-columns:1fr}
+    .govbar .esq{display:none}
   }
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="container">
-    <div class="info">
-      <span><i class="fa-solid fa-location-dot"></i>Av. Fernando Corrêa da Costa, 2367 — Cuiabá/MT</span>
-      <span><i class="fa-solid fa-phone"></i>(65) 3313-7281 / 7282</span>
-      <span><i class="fa-solid fa-envelope"></i>concursos.proad@ufmt.br</span>
+<!-- BARRA GOV / ACESSIBILIDADE -->
+<div class="govbar">
+  <div class="wrap">
+    <div class="esq">
+      <a href="#"><i class="fa-solid fa-landmark-flag"></i>Portal UFMT</a>
+      <a href="#"><i class="fa-solid fa-circle-info"></i>Acesso à informação</a>
+      <a href="#"><i class="fa-solid fa-sitemap"></i>Mapa do site</a>
     </div>
-    <div class="social">
-      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#"><i class="fa-brands fa-youtube"></i></a>
-      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+    <div class="dir">
+      <a href="#" title="Diminuir fonte">A-</a>
+      <a href="#" title="Aumentar fonte">A+</a>
+      <a href="#" title="Alto contraste"><i class="fa-solid fa-circle-half-stroke"></i> Contraste</a>
+      <a href="#" title="Libras"><i class="fa-solid fa-hands-asl-interpreting"></i> Libras</a>
     </div>
   </div>
 </div>
 
-<!-- HEADER -->
-<header>
-  <div class="container nav">
-    <a href="#" class="brand">
-      <div class="logo"><span>UFMT</span></div>
-      <div class="txt">
-        <b>UFMT</b>
-        <small>PROAD · Supervisão de Concursos</small>
+<!-- CABEÇALHO -->
+<header class="topo">
+  <div class="wrap">
+    <div class="marca">
+      <img src="logo-ufmt.svg" alt="Brasão da Universidade Federal de Mato Grosso">
+      <div class="nome">
+        <b>Universidade Federal de Mato Grosso</b>
+        <small>PROAD — Pró-Reitoria de Administração<br>Supervisão de Concursos</small>
       </div>
-    </a>
-    <nav>
-      <ul class="menu" id="menu">
-        <li><a href="#inicio" class="active">Início</a></li>
-        <li><a href="#andamento">Em andamento</a></li>
-        <li><a href="#vestibulares">Vestibulares</a></li>
-        <li><a href="#especificos">PSEs</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-    <button class="burger" id="burger"><i class="fa-solid fa-bars"></i></button>
+    </div>
+    <form class="busca" onsubmit="return false">
+      <input type="text" placeholder="Buscar editais, concursos, resultados...">
+      <button type="submit" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="inicio" style="padding:0">
-  <div class="container">
-    <div>
-      <span class="badge"><i class="fa-solid fa-circle-check"></i> Pró-Reitoria de Administração — UFMT</span>
-      <h1>Vestibulares e <em>Concursos</em> da Universidade Federal de Mato Grosso</h1>
-      <p>Acompanhe editais, cronogramas, resultados e processos seletivos da UFMT em um único lugar. Transparência e oportunidade para o seu futuro.</p>
-      <div class="cta">
-        <a href="#andamento" class="btn btn-gold"><i class="fa-solid fa-bullhorn"></i> Concursos abertos</a>
-        <a href="#vestibulares" class="btn btn-ghost"><i class="fa-solid fa-graduation-cap"></i> Ver vestibulares</a>
-      </div>
-    </div>
-    <div class="hero-card">
-      <h3><i class="fa-solid fa-bolt" style="color:var(--dourado)"></i> Destaques recentes</h3>
-      <div class="hl"><span>Docente 2026</span><span class="pill">NOVO</span></div>
-      <div class="hl"><span>Revalidação — Medicina 2026</span><span>02/06</span></div>
-      <div class="hl"><span>PJC 2022 — novo cronograma</span><span>12/05</span></div>
-      <div class="hl"><span>Proc. Seletivo Interno PMMT</span><span>29/04</span></div>
-    </div>
+<!-- MENU -->
+<nav class="menu" id="menu">
+  <div class="wrap">
+    <a href="#" class="ativo"><i class="fa-solid fa-house"></i> Página inicial</a>
+    <a href="#avisos"><i class="fa-solid fa-bullhorn"></i> Concursos em andamento</a>
+    <a href="#vestibulares"><i class="fa-solid fa-graduation-cap"></i> Vestibulares</a>
+    <a href="#especificos"><i class="fa-solid fa-file-lines"></i> Proc. específicos</a>
+    <a href="#"><i class="fa-solid fa-user-group"></i> Colaboradores (fiscais)</a>
+    <a href="#rodape"><i class="fa-solid fa-envelope"></i> Fale conosco</a>
+    <button class="toggle" id="toggle" aria-label="Abrir menu"><i class="fa-solid fa-bars"></i></button>
   </div>
-</section>
-<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none"><path fill="#0070C0" d="M0,40 C360,90 720,0 1080,30 C1260,45 1380,55 1440,40 L1440,80 L0,80 Z"></path></svg>
+</nav>
 
-<!-- STATS -->
-<div class="stats">
-  <div class="container">
-    <div class="grid">
-      <div class="stat"><div class="ic"><i class="fa-solid fa-folder-open"></i></div><b>6</b><span>Concursos em andamento</span></div>
-      <div class="stat"><div class="ic"><i class="fa-solid fa-graduation-cap"></i></div><b>12+</b><span>Vestibulares realizados</span></div>
-      <div class="stat"><div class="ic"><i class="fa-solid fa-file-certificate"></i></div><b>8</b><span>Processos específicos</span></div>
-      <div class="stat"><div class="ic"><i class="fa-solid fa-users"></i></div><b>20k+</b><span>Candidatos atendidos</span></div>
-    </div>
+<!-- BREADCRUMB -->
+<div class="trilha">
+  <div class="wrap">
+    <a href="#">Início</a><i class="fa-solid fa-chevron-right"></i>
+    <a href="#">PROAD</a><i class="fa-solid fa-chevron-right"></i>
+    <span>Vestibulares e Concursos</span>
   </div>
 </div>
 
-<!-- ANDAMENTO -->
-<section class="andamento" id="andamento">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">Acompanhe</span>
-      <h2>Concursos em andamento</h2>
-      <p>Processos seletivos com etapas ativas. Clique para conferir editais, cronogramas e resultados.</p>
-    </div>
-    <div class="cards">
-      <div class="card"><div class="bar"></div><div class="body">
-        <span class="status"><span class="dot"></span> Em andamento</span>
-        <h3>Docente 2026</h3>
-        <p class="desc">Recurso contra o resultado do procedimento de heteroidentificação.</p>
-        <div class="foot"><span class="date"><i class="fa-regular fa-calendar"></i>16/06/2026 · 08:00</span><span class="more">Detalhes <i class="fa-solid fa-arrow-right"></i></span></div>
-      </div></div>
-      <div class="card"><div class="bar"></div><div class="body">
-        <span class="status"><span class="dot"></span> Em andamento</span>
-        <h3>PM 2022</h3>
-        <p class="desc">Resultado da prova discursiva/redação — Processo Judicial 1012993-49.</p>
-        <div class="foot"><span class="date"><i class="fa-regular fa-calendar"></i>10/06/2026 · 13:48</span><span class="more">Detalhes <i class="fa-solid fa-arrow-right"></i></span></div>
-      </div></div>
-      <div class="card"><div class="bar"></div><div class="body">
-        <span class="status"><span class="dot"></span> Em andamento</span>
-        <h3>Revalidação — Medicina 2026</h3>
-        <p class="desc">Resultado final da revalidação de diplomas — Faculdade de Medicina.</p>
-        <div class="foot"><span class="date"><i class="fa-regular fa-calendar"></i>02/06/2026 · 10:24</span><span class="more">Detalhes <i class="fa-solid fa-arrow-right"></i></span></div>
-      </div></div>
-      <div class="card"><div class="bar"></div><div class="body">
-        <span class="status"><span class="dot"></span> Em andamento</span>
-        <h3>PJC 2022</h3>
-        <p class="desc">Novo cronograma — Edital complementar nº 19/2026-SEPLAG/SESP/MT.</p>
-        <div class="foot"><span class="date"><i class="fa-regular fa-calendar"></i>12/05/2026 · 16:45</span><span class="more">Detalhes <i class="fa-solid fa-arrow-right"></i></span></div>
-      </div></div>
-      <div class="card"><div class="bar"></div><div class="body">
-        <span class="status"><span class="dot"></span> Em andamento</span>
-        <h3>CBM 2022</h3>
-        <p class="desc">Novo cronograma — Editais nº 006 e 007/2022-SEPLAG/SESP/MT.</p>
-        <div class="foot"><span class="date"><i class="fa-regular fa-calendar"></i>12/05/2026 · 16:36</span><span class="more">Detalhes <i class="fa-solid fa-arrow-right"></i></span></div>
-      </div></div>
-      <div class="card"><div class="bar"></div><div class="body">
-        <span class="status"><span class="dot"></span> Em andamento</span>
-        <h3>Proc. Seletivo Interno PMMT</h3>
-        <p class="desc">Publicação de edital do processo seletivo interno da PMMT.</p>
-        <div class="foot"><span class="date"><i class="fa-regular fa-calendar"></i>29/04/2026 · 15:23</span><span class="more">Detalhes <i class="fa-solid fa-arrow-right"></i></span></div>
-      </div></div>
-    </div>
-  </div>
-</section>
+<!-- CONTEÚDO -->
+<main class="conteudo">
+  <div class="wrap grade">
 
-<!-- VESTIBULARES -->
-<section id="vestibulares">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">Histórico</span>
-      <h2>Processos Seletivos UFMT</h2>
-      <p>Acesso ao histórico de vestibulares da Universidade Federal de Mato Grosso.</p>
-    </div>
-    <div class="anos">
-      <a class="ano"><i class="fa-solid fa-file-lines"></i><b>2002</b><span>Vestibular</span></a>
-      <a class="ano"><i class="fa-solid fa-file-lines"></i><b>2003</b><span>Vestibular</span></a>
-      <a class="ano"><i class="fa-solid fa-file-lines"></i><b>2004</b><span>Vestibular</span></a>
-      <a class="ano"><i class="fa-solid fa-file-lines"></i><b>2005</b><span>Vestibular</span></a>
-      <a class="ano"><i class="fa-solid fa-file-lines"></i><b>2006</b><span>Vestibular</span></a>
-      <a class="ano"><i class="fa-solid fa-file-lines"></i><b>2006/2</b><span>Vestibular</span></a>
-      <a class="ano"><i class="fa-solid fa-file-lines"></i><b>2007</b><span>Vestibular</span></a>
-      <a class="ano"><i class="fa-solid fa-file-lines"></i><b>2008</b><span>Vestibular</span></a>
-      <a class="ano"><i class="fa-solid fa-file-lines"></i><b>2009</b><span>Vestibular</span></a>
-      <a class="ano"><i class="fa-solid fa-file-lines"></i><b>2010</b><span>Vestibular</span></a>
-      <a class="ano"><i class="fa-solid fa-file-lines"></i><b>2011</b><span>Vestibular</span></a>
-      <a class="ano"><i class="fa-solid fa-file-lines"></i><b>2012</b><span>Vestibular</span></a>
-    </div>
-  </div>
-</section>
+    <!-- SIDEBAR -->
+    <aside>
+      <section class="bloco">
+        <h2><i class="fa-regular fa-clock"></i> Concursos em andamento</h2>
+        <ul class="andamento">
+          <li>
+            <a href="#" class="tit">Docente 2026</a>
+            <div class="det">Recurso contra o resultado do procedimento de heteroidentificação.</div>
+            <span class="quando"><i class="fa-regular fa-calendar"></i>16/06/2026 — 08h00</span>
+          </li>
+          <li>
+            <a href="#" class="tit">PM 2022</a>
+            <div class="det">Resultado da prova discursiva/redação — Processo Judicial 1012993-49.2023.8.11.0041.</div>
+            <span class="quando"><i class="fa-regular fa-calendar"></i>10/06/2026 — 13h48</span>
+          </li>
+          <li>
+            <a href="#" class="tit">Revalidação — Fac. de Medicina 2026</a>
+            <div class="det">Resultado final da revalidação de diplomas.</div>
+            <span class="quando"><i class="fa-regular fa-calendar"></i>02/06/2026 — 10h24</span>
+          </li>
+          <li>
+            <a href="#" class="tit">PJC 2022</a>
+            <div class="det">Novo cronograma — Edital complementar nº 19/2026-SEPLAG/SESP/MT.</div>
+            <span class="quando"><i class="fa-regular fa-calendar"></i>12/05/2026 — 16h45</span>
+          </li>
+          <li>
+            <a href="#" class="tit">CBM 2022</a>
+            <div class="det">Novo cronograma — Editais nº 006 e 007/2022-SEPLAG/SESP/MT.</div>
+            <span class="quando"><i class="fa-regular fa-calendar"></i>12/05/2026 — 16h36</span>
+          </li>
+          <li>
+            <a href="#" class="tit">Processo Seletivo Interno PMMT</a>
+            <div class="det">Publicação de edital do processo seletivo interno.</div>
+            <span class="quando"><i class="fa-regular fa-calendar"></i>29/04/2026 — 15h23</span>
+          </li>
+        </ul>
+      </section>
 
-<!-- PSE -->
-<section class="pse" id="especificos">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">Modalidades</span>
-      <h2>Processos Seletivos Específicos</h2>
-      <p>PSEs e programas especiais ofertados pela UFMT ao longo dos anos.</p>
-    </div>
-    <div class="pse-list">
-      <a class="pse-item"><div class="ic"><i class="fa-solid fa-certificate"></i></div><div class="tx"><b>PSE 2004</b><span>Processo Seletivo Específico</span></div><i class="fa-solid fa-chevron-right arr"></i></a>
-      <a class="pse-item"><div class="ic"><i class="fa-solid fa-certificate"></i></div><div class="tx"><b>PSE 2005</b><span>Processo Seletivo Específico</span></div><i class="fa-solid fa-chevron-right arr"></i></a>
-      <a class="pse-item"><div class="ic"><i class="fa-solid fa-laptop"></i></div><div class="tx"><b>PSE 2006</b><span>Modalidade à distância</span></div><i class="fa-solid fa-chevron-right arr"></i></a>
-      <a class="pse-item"><div class="ic"><i class="fa-solid fa-laptop"></i></div><div class="tx"><b>PSE 2007</b><span>Modalidade à distância</span></div><i class="fa-solid fa-chevron-right arr"></i></a>
-      <a class="pse-item"><div class="ic"><i class="fa-solid fa-user-doctor"></i></div><div class="tx"><b>Residência Multiprofissional 2009</b><span>Saúde do Adulto e do Idoso</span></div><i class="fa-solid fa-chevron-right arr"></i></a>
-      <a class="pse-item"><div class="ic"><i class="fa-solid fa-globe"></i></div><div class="tx"><b>PSE 2009 — Japão</b><span>Programa internacional</span></div><i class="fa-solid fa-chevron-right arr"></i></a>
-      <a class="pse-item"><div class="ic"><i class="fa-solid fa-language"></i></div><div class="tx"><b>PSE 2009 — Língua Espanhola</b><span>Programa específico</span></div><i class="fa-solid fa-chevron-right arr"></i></a>
-      <a class="pse-item"><div class="ic"><i class="fa-solid fa-building-columns"></i></div><div class="tx"><b>PSE 2009 — UAB</b><span>Universidade Aberta do Brasil</span></div><i class="fa-solid fa-chevron-right arr"></i></a>
-    </div>
-  </div>
-</section>
+      <section class="bloco links-rapidos">
+        <h2><i class="fa-solid fa-link"></i> Acesso rápido</h2>
+        <div class="corpo">
+          <a href="#"><i class="fa-solid fa-file-signature"></i> Inscrições abertas</a>
+          <a href="#"><i class="fa-solid fa-list-check"></i> Resultados e gabaritos</a>
+          <a href="#"><i class="fa-solid fa-id-card"></i> Área do candidato</a>
+          <a href="#"><i class="fa-solid fa-user-group"></i> Colaboradores e fiscais</a>
+          <a href="#"><i class="fa-solid fa-circle-question"></i> Perguntas frequentes</a>
+        </div>
+      </section>
+    </aside>
 
-<!-- SERVIÇOS -->
-<section id="servicos">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">Acesso rápido</span>
-      <h2>Serviços ao candidato</h2>
-      <p>Tudo o que você precisa para participar dos processos seletivos da UFMT.</p>
-    </div>
-    <div class="serv">
-      <div class="box"><div class="ic"><i class="fa-solid fa-file-signature"></i></div><h4>Inscrições</h4><p>Realize sua inscrição nos concursos e processos abertos.</p></div>
-      <div class="box"><div class="ic"><i class="fa-solid fa-list-check"></i></div><h4>Resultados</h4><p>Consulte gabaritos, notas e listas de aprovados.</p></div>
-      <div class="box"><div class="ic"><i class="fa-solid fa-id-badge"></i></div><h4>Colaboradores</h4><p>Área de fiscais e colaboradores dos certames.</p></div>
-      <div class="box"><div class="ic"><i class="fa-solid fa-headset"></i></div><h4>Fale conosco</h4><p>Tire dúvidas com a Supervisão de Concursos.</p></div>
-    </div>
-  </div>
-</section>
+    <!-- COLUNA PRINCIPAL -->
+    <div>
+      <div class="destaque">
+        <h1>Vestibulares e Concursos</h1>
+        <p>Página da Supervisão de Concursos da Pró-Reitoria de Administração (PROAD) da UFMT. Aqui você encontra os editais, cronogramas, avisos e resultados dos processos seletivos, vestibulares e concursos públicos organizados pela Universidade.</p>
+      </div>
 
-<!-- CTA FAIXA -->
-<section style="padding-top:0">
-  <div class="container">
-    <div class="faixa">
-      <h2>Pronto para o seu próximo desafio?</h2>
-      <p>Fique por dentro dos editais e prazos. Acompanhe os concursos da UFMT e garanta sua vaga.</p>
-      <a href="#andamento" class="btn btn-gold"><i class="fa-solid fa-arrow-right-to-bracket"></i> Ver concursos abertos</a>
-    </div>
-  </div>
-</section>
+      <!-- AVISOS / NOTÍCIAS -->
+      <section class="bloco" id="avisos">
+        <h2><i class="fa-solid fa-bullhorn"></i> Últimos avisos</h2>
+        <ul class="avisos">
+          <li>
+            <div class="data"><b>16</b><span>jun</span></div>
+            <div class="txt">
+              <h3><a href="#">Docente 2026 — abertura de prazo para recurso</a></h3>
+              <p>Recurso contra o resultado do procedimento de heteroidentificação, conforme cronograma do edital.</p>
+              <span class="tag">Docente 2026</span>
+            </div>
+          </li>
+          <li>
+            <div class="data"><b>10</b><span>jun</span></div>
+            <div class="txt">
+              <h3><a href="#">PM 2022 — resultado da prova discursiva/redação</a></h3>
+              <p>Divulgação do resultado referente ao Processo Judicial nº 1012993-49.2023.8.11.0041.</p>
+              <span class="tag azul">PM 2022</span>
+            </div>
+          </li>
+          <li>
+            <div class="data"><b>02</b><span>jun</span></div>
+            <div class="txt">
+              <h3><a href="#">Revalidação — Faculdade de Medicina 2026</a></h3>
+              <p>Publicação do resultado final do processo de revalidação de diplomas médicos.</p>
+              <span class="tag">Resultado final</span>
+            </div>
+          </li>
+          <li>
+            <div class="data"><b>12</b><span>mai</span></div>
+            <div class="txt">
+              <h3><a href="#">PJC 2022 — novo cronograma</a></h3>
+              <p>Edital complementar nº 19/2026-SEPLAG/SESP/MT ao Edital nº 001/2022-SEPLAG/SESP/MT.</p>
+              <span class="tag azul">PJC 2022</span>
+            </div>
+          </li>
+        </ul>
+      </section>
 
-<!-- FOOTER -->
-<footer id="contato">
-  <div class="container">
-    <div class="foot-grid">
+      <!-- VESTIBULARES -->
+      <section class="grupo" id="vestibulares">
+        <h2><i class="fa-solid fa-graduation-cap"></i> Processos Seletivos UFMT (Vestibulares)</h2>
+        <ul class="lista">
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Processo Seletivo de 2002 <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Processo Seletivo de 2003 <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Processo Seletivo de 2004 <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Processo Seletivo de 2005 <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Processo Seletivo de 2006 <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Processo Seletivo de 2006/2 <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Processo Seletivo de 2007 <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Processo Seletivo de 2008 <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Processo Seletivo de 2009 <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Processo Seletivo de 2010 <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Processo Seletivo de 2011 <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Processo Seletivo de 2012 <span class="ext">PDF</span></a></li>
+        </ul>
+      </section>
+
+      <!-- PSE -->
+      <section class="grupo" id="especificos">
+        <h2><i class="fa-solid fa-file-lines"></i> Processos Seletivos Específicos (PSEs)</h2>
+        <ul class="lista">
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Processo Seletivo Específico 2004 <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Processo Seletivo Específico 2005 <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> PSE 2006 — Modalidade à distância <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> PSE 2007 — Modalidade à distância <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> Especialização em Resid. Multiprof. em Saúde do Adulto e do Idoso 2009 <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> PSE 2009 — Japão <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> PSE 2009 — Língua Espanhola <span class="ext">PDF</span></a></li>
+          <li><a href="#"><i class="fa-regular fa-file-lines"></i> PSE 2009 — UAB <span class="ext">PDF</span></a></li>
+        </ul>
+      </section>
+    </div>
+
+  </div>
+</main>
+
+<!-- RODAPÉ -->
+<footer id="rodape">
+  <div class="wrap top">
+    <div class="grade-f">
       <div>
-        <div class="fbrand"><div class="logo">UFMT</div><b>UFMT · Concursos</b></div>
-        <p>Pró-Reitoria de Administração (PROAD) — Supervisão de Concursos da Universidade Federal de Mato Grosso.</p>
+        <div class="marca-f">
+          <img src="logo-ufmt.svg" alt="UFMT">
+          <b>Universidade Federal<br>de Mato Grosso</b>
+        </div>
+        <p>Supervisão de Concursos — Pró-Reitoria de Administração (PROAD). Responsável pela organização dos processos seletivos e concursos da Universidade.</p>
+        <div class="redes">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
       </div>
       <div>
-        <h5>Navegação</h5>
+        <h4>Concursos</h4>
         <ul>
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#andamento">Em andamento</a></li>
+          <li><a href="#avisos">Em andamento</a></li>
           <li><a href="#vestibulares">Vestibulares</a></li>
-          <li><a href="#especificos">PSEs</a></li>
+          <li><a href="#especificos">Proc. específicos</a></li>
+          <li><a href="#">Editais publicados</a></li>
+          <li><a href="#">Resultados</a></li>
         </ul>
       </div>
       <div>
-        <h5>Institucional</h5>
+        <h4>Institucional</h4>
         <ul>
-          <li><a href="#">Sobre a UFMT</a></li>
-          <li><a href="#">Editais</a></li>
-          <li><a href="#">Colaboradores</a></li>
+          <li><a href="#">A UFMT</a></li>
+          <li><a href="#">PROAD</a></li>
+          <li><a href="#">Acesso à informação</a></li>
           <li><a href="#">Transparência</a></li>
+          <li><a href="#">Ouvidoria</a></li>
         </ul>
       </div>
       <div>
-        <h5>Contato</h5>
-        <ul>
-          <li><i class="fa-solid fa-location-dot"></i>Av. Fernando Corrêa da Costa, 2367 — Boa Esperança, Cuiabá/MT</li>
-          <li><i class="fa-solid fa-phone"></i>(65) 3313-7281 / 7282</li>
-          <li><i class="fa-solid fa-envelope"></i>concursos.proad@ufmt.br</li>
+        <h4>Contato</h4>
+        <ul class="contato">
+          <li><i class="fa-solid fa-location-dot"></i><span>Av. Fernando Corrêa da Costa, 2367 — Boa Esperança, Cuiabá/MT, CEP 78060-900</span></li>
+          <li><i class="fa-solid fa-phone"></i><span>(65) 3313-7281 / 7282</span></li>
+          <li><i class="fa-solid fa-envelope"></i><span>concursos.proad@ufmt.br</span></li>
         </ul>
       </div>
     </div>
   </div>
-  <div class="foot-bottom">© 2026 UFMT — Universidade Federal de Mato Grosso · PROAD · Supervisão de Concursos. Todos os direitos reservados.</div>
+  <div class="base">
+    © 2026 Universidade Federal de Mato Grosso — PROAD / Supervisão de Concursos. Av. Fernando Corrêa da Costa, 2367, Cuiabá/MT.
+  </div>
 </footer>
 
 <script>
-  const burger=document.getElementById('burger');
-  const menu=document.getElementById('menu');
-  burger.addEventListener('click',()=>menu.classList.toggle('open'));
-  document.querySelectorAll('.menu a').forEach(a=>{
-    a.addEventListener('click',()=>{
-      document.querySelectorAll('.menu a').forEach(x=>x.classList.remove('active'));
-      a.classList.add('active');
-      menu.classList.remove('open');
-    });
-  });
-  const sections=document.querySelectorAll('section[id]');
-  window.addEventListener('scroll',()=>{
-    let cur='';
-    sections.forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id});
-    document.querySelectorAll('.menu a').forEach(a=>{
-      a.classList.toggle('active',a.getAttribute('href')==='#'+cur);
-    });
-  });
+  var toggle=document.getElementById('toggle'),menu=document.getElementById('menu');
+  toggle.addEventListener('click',function(){menu.classList.toggle('aberto');});
 </script>
 </body>
 </html>

@@ -11,7 +11,10 @@
       "Bash(git status:*)",
       "Bash(curl:*)",
       "mcp__visualize__read_me",
-      "mcp__visualize__show_widget"
+      "mcp__visualize__show_widget",
+      "Bash(start \"\" \"C:\\\\Users\\\\Franco\\\\Downloads\\\\projeto teste\\\\ufmt_concursos\\\\index.html\")",
+      "WebSearch",
+      "WebFetch(domain:pt.wikipedia.org)"
     ]
   },
   "hooks": {
