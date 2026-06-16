@@ -22,6 +22,7 @@ for col, (nome, df) in zip(cols, frames.items()):
     preco = df["Close"].squeeze()
     cotacao_atual = preco.iloc[-1]
     variacao_ano = ((preco.iloc[-1] / preco.iloc[0]) - 1) * 100
+    
     maxima = preco.max()
     minima = preco.min()
     with col:
